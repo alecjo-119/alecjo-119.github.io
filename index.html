@@ -3,43 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>N. Cognome | Offshore Engineer & Tech Maker</title>
+    <title>N. Cognome | Engineer Portfolio</title>
     
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;500&family=Outfit:wght@300;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
+        /* VARIABILI: Qui definiamo i colori globali per cambiarli ovunque in un colpo solo */
         :root {
-            --deep-blue: #060b10;
-            --marine-tech: #00f2ff;
-            --steel: #ccd6f6;
-            --glass: rgba(255, 255, 255, 0.05);
-            --ai-purp: #7000ff;
+            --deep-blue: #060b10;   /* Colore di sfondo scuro */
+            --marine-tech: #00f2ff; /* Colore d'accento (Ciano) */
+            --steel: #ccd6f6;      /* Colore del testo principale */
+            --glass: rgba(255, 255, 255, 0.05); /* Effetto vetro semitrasparente */
         }
-
-        * { box-sizing: border-box; }
 
         body {
             margin: 0;
             font-family: 'Outfit', sans-serif;
             background-color: var(--deep-blue);
             color: var(--steel);
-            overflow-x: hidden;
+            overflow-x: hidden; /* Evita lo scroll orizzontale */
         }
 
-        /* SFONDO VIDEO / IMMAGINE */
+        /* SFONDO VIDEO: Gestisce il mare che vedi dietro tutto */
         .ocean-bg {
-            position: fixed;
+            position: fixed; /* Rimane fermo mentre scrolli */
             top: 0; left: 0;
             width: 100%; height: 100%;
-            z-index: -2;
+            z-index: -2;     /* Lo mette dietro a ogni altro elemento */
             overflow: hidden;
         }
         .ocean-bg video {
             width: 100%; height: 100%;
-            object-fit: cover;
-            filter: brightness(30%) grayscale(20%);
+            object-fit: cover; /* Riempie lo schermo senza deformarsi */
+            filter: brightness(30%); /* Scurisce il video per far leggere il testo sopra */
         }
+
+        /* OVERLAY: Uno strato sopra il video per creare una sfumatura verso il nero */
         .overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -47,115 +47,41 @@
             z-index: -1;
         }
 
-        /* NAVBAR */
+        /* NAVBAR: La barra di navigazione superiore */
         nav {
-            display: flex; justify-content: space-between; align-items: center;
+            display: flex; 
+            justify-content: space-between; /* Logo a sinistra, link a destra */
+            align-items: center;
             padding: 1.5rem 5%;
-            background: rgba(6, 11, 16, 0.8);
-            backdrop-filter: blur(15px);
-            position: sticky; top: 0; z-index: 100;
+            background: rgba(6, 11, 16, 0.8); /* Sfondo semi-nero */
+            backdrop-filter: blur(15px);     /* Sfoca quello che c'è dietro (effetto vetro) */
+            position: sticky;                /* Resta in alto mentre scrolli */
+            top: 0; z-index: 100;
             border-bottom: 1px solid var(--glass);
         }
-        .logo { font-weight: 800; letter-spacing: 2px; }
-        .nav-links a { 
-            color: var(--steel); text-decoration: none; margin-left: 2rem; 
-            font-family: 'JetBrains Mono'; font-size: 0.8rem;
-        }
 
-        /* HERO */
+        /* HERO SECTION: Il primo impatto, titolo e introduzione */
         .hero {
             padding: 120px 5%;
             max-width: 1200px;
         }
-        .hero h1 { font-size: clamp(2.5rem, 6vw, 5rem); line-height: 1; margin: 0; color: white; }
-        .hero p { max-width: 600px; font-size: 1.2rem; color: #8892b0; margin: 2rem 0; }
-        .ai-tag { color: var(--marine-tech); font-family: 'JetBrains Mono'; }
+        .hero h1 { 
+            font-size: clamp(2.5rem, 6vw, 5rem); /* Dimensione carattere che si adatta allo schermo */
+            line-height: 1; 
+            margin: 0; 
+            color: white; 
+        }
 
-        /* GRID DELLE ANIME (GLASSMORPHISM) */
+        /* GRID: La griglia con le tue 3 aree principali */
         .hub-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Crea colonne automatiche */
             gap: 20px;
             padding: 0 5% 100px;
         }
+
+        /* CARD: Ogni singolo riquadro della griglia */
         .card {
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.1);
-            padding: 40px;
-            border-radius: 4px;
-            transition: 0.3s;
-        }
-        .card:hover {
-            border-color: var(--marine-tech);
-            transform: translateY(-5px);
-        }
-        .card i { font-size: 2rem; color: var(--marine-tech); margin-bottom: 1.5rem; }
-        .card h3 { margin: 0 0 1rem 0; text-transform: uppercase; letter-spacing: 1px; }
-
-        /* PORTFOLIO & LAB SECTION */
-        .section-title { padding: 0 5%; font-family: 'JetBrains Mono'; color: var(--marine-tech); margin-bottom: 2rem; }
-
-        .lab-item {
-            display: grid; grid-template-columns: 1fr 2fr; gap: 40px;
-            padding: 40px 5%; align-items: center;
-            border-bottom: 1px solid var(--glass);
-        }
-        .lab-img { 
-            width: 100%; aspect-ratio: 1; background: var(--glass); 
-            border-radius: 8px; overflow: hidden;
-        }
-        .lab-img img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; }
-
-        footer {
-            padding: 100px 5% 50px; text-align: center;
-            border-top: 1px solid var(--glass);
-            background: var(--deep-blue);
-        }
-
-        @media (max-width: 768px) {
-            .lab-item { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="ocean-bg">
-        <video autoplay muted loop playsinline>
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-dark-blue-ocean-waves-background-2182-large.mp4" type="video/mp4">
-        </video>
-        <div class="overlay"></div>
-    </div>
-
-    <nav>
-        <div class="logo">COGNOME <span style="color:var(--marine-tech)">_</span></div>
-        <div class="nav-links">
-            <a href="#engineering">ENGINEERING</a>
-            <a href="#lab">THE LAB</a>
-            <a href="#photo">ARCHIVE</a>
-        </div>
-    </nav>
-
-    <header class="hero">
-        <span class="ai-tag">// OFFSHORE ANALYST & TECH MAKER</span>
-        <h1>Naval Engineering<br>meets <span style="color:var(--marine-tech)">Intelligence.</span></h1>
-        <p>Progettazione offshore, analisi dati avanzata con IA e prototipazione fisica. Benvenuti nel mio spazio di convergenza tecnica.</p>
-    </header>
-
-    <main>
-        <div class="hub-grid">
-            <div class="card">
-                <i class="fa-solid fa-anchor"></i>
-                <h3>Offshore Engineering</h3>
-                <p>Analisi strutturale e idrodinamica per il settore navale ed energetico offshore.</p>
-            </div>
-            <div class="card">
-                <i class="fa-solid fa-brain"></i>
-                <h3>AI & Automation</h3>
-                <p>Implementazione di modelli IA per l'ottimizzazione dei carichi e monitoraggio remoto.</p>
-            </div>
-            <div class="card">
-                <i class="fa-solid fa-cube"></i>
-                <h3>3D & Arduino</h3>
-                <p>Prototipazione rapida di sensori marini e componenti meccanici complessi.</p>
+            background: var(--glass);       /* Sfondo trasparente */
+            backdrop-filter: blur(10px);    /* Sfoca il mare dietro la card */
+            border: 1
