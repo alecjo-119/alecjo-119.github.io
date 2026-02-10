@@ -88,19 +88,18 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .tab {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
-            color: white;
-            border-right: 1px solid rgba(255, 255, 255, 0.05);
-            transition: 0.4s;
-            position: relative;
-        }
-
-        .tab:last-child { border-right: none; }
+.tab {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    padding: 20px;
+    border-right: 1px solid rgba(255,255,255,0.1);
+    transition: 0.3s;
+}
+.tab:last-child { border-right: none; } /* Toglie il bordo all'ultimo tab a destra */
 
         /* EFFETTO AL PASSAGGIO DEL MOUSE */
         .tab:hover {
@@ -142,8 +141,8 @@
         <h1>Engineering<br>the <span style="color: var(--accent);">Ocean.</span></h1>
     </main>
 
-    <footer class="bottom-tabs">
-        <a href="#engineering" class="main-tab">
+<footer class="bottom-tabs">
+        <a href="#engineering" class="tab">
             <i class="fas fa-ship"></i>
             <h3>Engineering</h3>
             <span>OFFSHORE & NAVAL ARCH</span>
@@ -153,13 +152,13 @@
             <h3>THE LAB</h3>
             <span>AI & PROTOTYPING</span>
         </a>
-        <a href="#life" class="main-tab">
+        <a href="#life" class="tab">
             <i class="fas fa-compass"></i>
             <h3>The Life</h3>
             <span>TRAVELS & VISUAL LOGS</span>
         </a>
-<div class="mini-footer">
-    LAT: 44.4056 N | LON: 8.9463 E // © 2026 A. MASSARO // SYSTEM_STATUS: OPERATIONAL
-</div>
+    </footer> <div class="mini-footer">
+        LAT: 44.4056 N | LON: 8.9463 E // © 2026 A. MASSARO // SYSTEM_STATUS: OPERATIONAL
+    </div>
 </body>
 </html>
