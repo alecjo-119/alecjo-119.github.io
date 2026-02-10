@@ -20,7 +20,18 @@
             color: white;
             overflow: hidden; /* Evita lo scroll per mantenere l'effetto Dashboard */
         }
-
+        .mini-footer {
+            position: fixed;
+            bottom: 10px; /* Distanza dal bordo inferiore */
+            width: 100%;
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            color: rgba(255, 255, 255, 0.3); /* Grigio molto tenue per non distrarre */
+            letter-spacing: 1px;
+            z-index: 10; /* Lo tiene sopra lo sfondo */
+            pointer-events: none; /* Evita che il testo interferisca con i click sui tab */
+        }
         /* SFONDO MARE A TUTTO SCHERMO */
         .sea-background {
             position: fixed;
@@ -147,9 +158,8 @@
             <h3>The Life</h3>
             <span>TRAVELS & VISUAL LOGS</span>
         </a>
-    <div class="mini-footer">
-        © 2026 A. MASSARO | BUILT WITH PRECISION
-    </div>
-
+<div class="mini-footer">
+    LAT: 44.4056 N | LON: 8.9463 E // © 2026 A. MASSARO // SYSTEM_STATUS: OPERATIONAL
+</div>
 </body>
 </html>
